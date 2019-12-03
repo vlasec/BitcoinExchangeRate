@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:with="lang=${#locale.language}" th:lang="${lang}">
+<head>
+    <title>Bitcoin Exchange Rate</title>
+</head>
+<body>
+<h1>
+    <span th:text="#{application.name}"/>
+    <span th:text="${fromCurrency.code}"/>
+    <span th:text="${fromCurrency.longName}"/>
+    <span th:text=" -> ${toCurrency.code} (${toCurrency.longName})"/>
+</h1>
+<p>
+    <span th:text="#{current.rate} 1 ${fromCurrency.shortName} = ${entries[0].rate} ${toCurrency.shortName} (${lastChange})" />
+</p>
+<table>
+    <thead>
+        <tr>
+            <th><span th:text="#{table.time}" /></th>
+            <th><span th:text="#{table.rate}" /></th>
+        </tr>
+    </thead>
+    <tbody th:each="entry : ${entries}">
+        <tr>
+            <td><span th:text="${entry.timestamp}" /></td>
+            <td><span th:text="${entry.rate}" /></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
