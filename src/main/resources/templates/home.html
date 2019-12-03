@@ -5,26 +5,27 @@
     <title>Bitcoin Exchange Rate</title>
 </head>
 <body>
-<h1>
-    <span th:text="#{application.name}"/>
-    <span th:text="${fromCurrency.code}"/>
-    <span th:text="${fromCurrency.longName}"/>
-    <span th:text=" -> ${toCurrency.code} (${toCurrency.longName})"/>
-</h1>
-<p>
-    <span th:text="#{current.rate} 1 ${fromCurrency.shortName} = ${entries[0].rate} ${toCurrency.shortName} (${lastChange})" />
-</p>
+<h2>
+    Bitcoin Exchange Rate
+    <span th:text="${fromCurrency.code + ' 🡒 ' + toCurrency.code}"/>
+</h2>
+<p th:text="${'(' + fromCurrency.fullName + ' 🡒 ' + toCurrency.fullName + ')'}"></p>
+<h3>
+    Current exchange rate is
+    <span th:text="${'1 ' + fromCurrency.shortName + ' = ' + entries[0].rate + ' ' + toCurrency.shortName + ' (' + lastChange + ')'}" />
+</h3>
+<h3>Development of exchange rate in near past:</h3>
 <table>
     <thead>
         <tr>
-            <th><span th:text="#{table.time}" /></th>
-            <th><span th:text="#{table.rate}" /></th>
+            <th>Time</th>
+            <th>Exchange rate</th>
         </tr>
     </thead>
     <tbody th:each="entry : ${entries}">
         <tr>
-            <td><span th:text="${entry.timestamp}" /></td>
-            <td><span th:text="${entry.rate}" /></td>
+            <td th:text="${entry.timestamp}" />
+            <td th:text="${entry.rate}" />
         </tr>
     </tbody>
 </table>

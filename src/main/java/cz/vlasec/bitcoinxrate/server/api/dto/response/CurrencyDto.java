@@ -7,9 +7,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  */
 @JsonPropertyOrder({"code", "shortName", "fullName"})
 public class CurrencyDto {
-	private final String code;
-	private final String shortName;
-	private final String fullName;
+	private String code;
+	private String shortName;
+	private String fullName;
+
+	public CurrencyDto() {
+	}
 
 	public CurrencyDto(String code, String shortName, String fullName) {
 		this.code = code;
@@ -27,5 +30,17 @@ public class CurrencyDto {
 
 	public String getFullName() {
 		return fullName;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public void setShortName(String shortName) {
+		this.shortName = shortName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 }

@@ -7,10 +7,13 @@ import java.time.LocalDateTime;
 
 @JsonPropertyOrder({"fromCurrency", "toCurrency", "rate", "timestamp"})
 public class ExchangeRateDto {
-	private final CurrencyDto fromCurrency;
-	private final CurrencyDto toCurrency;
-	private final BigDecimal rate;
-	private final LocalDateTime timestamp;
+	private CurrencyDto fromCurrency;
+	private CurrencyDto toCurrency;
+	private BigDecimal rate;
+	private LocalDateTime timestamp;
+
+	public ExchangeRateDto() {
+	}
 
 	public ExchangeRateDto(CurrencyDto fromCurrency, CurrencyDto toCurrency, BigDecimal rate, LocalDateTime timestamp) {
 		this.fromCurrency = fromCurrency;
@@ -37,5 +40,21 @@ public class ExchangeRateDto {
 	/** Timestamp in local timezone. */
 	public LocalDateTime getTimestamp() {
 		return timestamp;
+	}
+
+	public void setFromCurrency(CurrencyDto fromCurrency) {
+		this.fromCurrency = fromCurrency;
+	}
+
+	public void setToCurrency(CurrencyDto toCurrency) {
+		this.toCurrency = toCurrency;
+	}
+
+	public void setRate(BigDecimal rate) {
+		this.rate = rate;
+	}
+
+	public void setTimestamp(LocalDateTime timestamp) {
+		this.timestamp = timestamp;
 	}
 }

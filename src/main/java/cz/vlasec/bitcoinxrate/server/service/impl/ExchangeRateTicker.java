@@ -1,7 +1,7 @@
 package cz.vlasec.bitcoinxrate.server.service.impl;
 
 import cz.vlasec.bitcoinxrate.server.atom.ExchangeRateSource;
-import cz.vlasec.bitcoinxrate.server.orm.dao.data.ExchangeInformationRepository;
+import cz.vlasec.bitcoinxrate.server.orm.dao.config.ExchangeInformationRepository;
 import cz.vlasec.bitcoinxrate.server.orm.dao.data.ExchangeRateRepository;
 import cz.vlasec.bitcoinxrate.server.orm.entity.config.ExchangeInformation;
 import cz.vlasec.bitcoinxrate.server.orm.entity.data.ExchangeRate;

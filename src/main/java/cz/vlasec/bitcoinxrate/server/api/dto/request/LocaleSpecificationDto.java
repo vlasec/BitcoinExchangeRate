@@ -5,30 +5,33 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import org.springframework.web.context.annotation.RequestScope;
 
+import java.util.Locale;
+import java.util.TimeZone;
+
 /**
  * A specification of locale to use for data presentation.
  */
 @RequestScope
 public class LocaleSpecificationDto {
-	private final String language;
-	private final String timeZoneName;
+	private final Locale locale;
+	private final TimeZone timeZone;
 
 	@JsonCreator
 	public LocaleSpecificationDto(
-			@JsonProperty("locale") String language,
-			@JsonProperty("timeZoneName") String timeZoneName
+			@JsonProperty("locale") Locale locale,
+			@JsonProperty("timeZone") TimeZone timeZone
 	) {
-		this.language = language;
-		this.timeZoneName = timeZoneName;
+		this.locale = locale;
+		this.timeZone = timeZone;
 	}
 
 	/** Language to be used for data presentation. */
-	public String getLanguage() {
-		return language;
+	public Locale getLocale() {
+		return locale;
 	}
 
 	/** Time zone to convert time information to. */
-	public String getTimeZoneName() {
-		return timeZoneName;
+	public TimeZone getTimeZone() {
+		return timeZone;
 	}
 }

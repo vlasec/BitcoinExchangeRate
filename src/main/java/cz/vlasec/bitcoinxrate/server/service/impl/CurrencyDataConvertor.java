@@ -21,7 +21,7 @@ public class CurrencyDataConvertor {
 	}
 
 	public CurrencyDto toDto(String code, LocaleSpecificationDto locale) {
-		CurrencyDescription descr = currencyDescriptionRepository.findByCodeAndLocale(code, locale.getLanguage());
+		CurrencyDescription descr = currencyDescriptionRepository.findByCodeAndLocale(code, locale.getLocale().getLanguage());
 		if (descr == null) {
 			currencyDescriptionRepository.findByCodeAndLocale(code, DEFAULT_LOCALE);
 		}
